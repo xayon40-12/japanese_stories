@@ -6,6 +6,7 @@ SVGS       := $(PLAIN_SVGS) $(DARK_SVGS)
 
 .PHONY: all
 all: $(SVGS)
+	cd assets && git add -A && git commit -m "update stories svg" && git push
 
 assets/%.svg: stories/%/main.typ
 	typst compile $< $@ --format svg
