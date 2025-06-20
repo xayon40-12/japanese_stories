@@ -1,3 +1,17 @@
+#set page(height: auto, margin: 4mm)
+#set text(14pt)
+
+#let text-color = black
+#let background-color = white
+#if sys.inputs.at("theme", default: "light") == "dark" {
+  text-color = rgb(240, 246, 252)
+  background-color = rgb("#0d1117")
+}
+#set text(text-color)
+#set page(fill: background-color)
+
+= 第一章
+
 昔々、ある魔法使いのネコはジンの国を旅していました。
 ジンの国にはたくさんの大きな空を飛ぶ島がありました。
 島はそれぞれ違っていました。
