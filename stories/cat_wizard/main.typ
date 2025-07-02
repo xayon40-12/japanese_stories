@@ -1,13 +1,12 @@
-#set page(height: auto, width: 10.5cm, margin: 4mm)
-
 #let text-color = black
 #let background-color = white
 #if sys.inputs.at("theme", default: "light") == "dark" {
   text-color = rgb(240, 246, 252)
   background-color = rgb("#0d1117")
 }
-#set text(text-color)
-#set page(fill: background-color)
+
+#set page(height: auto, width: 10.5cm, margin: 4mm, fill: background-color)
+#set text(text-color, lang: "ja", font: "Noto Sans Mono CJK JP")
 
 #show heading: it => stack(
   spacing: 5pt,
@@ -15,8 +14,10 @@
   line(length: 100%, stroke: 0.5pt),
 )
 
-#import "@preview/rubby:0.10.2": get-ruby
+#import "@preview/cjk-unbreak:0.1.1": remove-cjk-break-space
+#show: remove-cjk-break-space
 
+#import "@preview/rubby:0.10.2": get-ruby
 #let ruby = get-ruby(
   size: 0.5em,         // Ruby font size
   dy: -0.1em,             // Vertical offset of the ruby
